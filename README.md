@@ -2,7 +2,9 @@
 
 <div align="center">
   
-  Kick.com | Chrome | JavaScript
+  ![Kick](https://img.shields.io/badge/Kick.com-53FC18?style=for-the-badge&logo=kick&logoColor=black)
+  ![Chrome](https://img.shields.io/badge/Chrome-4285F4?style=for-the-badge&logo=google-chrome&logoColor=white)
+  ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
   
   **🚀 Take control of your Kick.com browsing experience!**
   
