@@ -2,9 +2,7 @@
 
 <div align="center">
   
-  ![Kick](https://img.shields.io/badge/Kick.com-53FC18?style=for-the-badge&logo=kick&logoColor=black)
-  ![Chrome](https://img.shields.io/badge/Chrome-4285F4?style=for-the-badge&logo=google-chrome&logoColor=white)
-  ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+  Kick.com | Chrome | JavaScript
   
   **🚀 Take control of your Kick.com browsing experience!**
   
@@ -18,9 +16,9 @@
 
 ### 🎯 Smart Filtering System
 - **👤 Streamer Names** - Exact match filtering (case-insensitive)
-  - ✅ "Levo" filters streamer "Levo"
-  - ✅ "levo" also filters streamer "Levo" 
-  - ❌ "lev" will NOT filter streamer "Levo"
+  - ✅ "Drake" filters streamer "Drake"
+  - ✅ "drake" also filters streamer "Drake" 
+  - ❌ "drak" will NOT filter streamer "Drake"
   
 - **📝 Stream Titles** - Partial keyword matching
   - Example: Filter "knight" blocks all streams with "knight" in the title
@@ -71,20 +69,6 @@ Or download as ZIP from the [releases page](https://github.com/tugayigus/Filtere
 - **🗑️ Remove** - Click "Remove" next to any filter
 - **💾 Export** - Save all filters to a JSON file
 - **📂 Import** - Load filters from a backup (merge or replace)
-
----
-
-## 🖼️ Screenshots
-
-<div align="center">
-  
-  ### Extension Popup Interface
-  Clean and intuitive filter management
-  
-  ### Before & After
-  See the difference FilteredKick makes!
-  
-</div>
 
 ---
 
@@ -175,6 +159,6 @@ This project is open source and available under the [MIT License](LICENSE).
   
   ### 🌟 If you find this useful, please star the repository! 🌟
   
-  Made with 💚 by [tugayigus](https://github.com/tugayigus)
+  Made for Kick Community by [tugayigus](https://github.com/tugayigus)
   
 </div>
