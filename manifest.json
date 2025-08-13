@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Filtered Kick",
   "version": "1.0.0",
-  "description": "Filter Kick.com streams by streamer name, title, and category",
+  "description": "Hide streams by streamer, title and category.",
   "permissions": [
     "storage",
     "activeTab"
