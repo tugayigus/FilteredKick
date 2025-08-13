@@ -2,6 +2,7 @@ let filters = {
   streamers: [],
   titles: [],
   categories: [],
+  excluded: [],
   enabled: true
 };
 
@@ -9,6 +10,10 @@ async function loadFilters() {
   const stored = await chrome.storage.local.get(['filters']);
   if (stored.filters) {
     filters = stored.filters;
+    // Ensure excluded array exists for backward compatibility
+    if (!filters.excluded) {
+      filters.excluded = [];
+    }
   }
   applyFilters();
 }
@@ -57,6 +62,16 @@ function extractStreamInfo(card) {
 
 function shouldHideStream(streamInfo) {
   if (!filters.enabled) return false;
+
+  // Check if streamer is in the excluded list (whitelist)
+  // If the streamer is excluded, never hide them
+  if (filters.excluded && filters.excluded.length > 0) {
+    for (const excludedStreamer of filters.excluded) {
+      if (streamInfo.streamerName && streamInfo.streamerName === excludedStreamer) {
+        return false; // Never hide excluded streamers
+      }
+    }
+  }
 
   // Exact match for streamer names (case-insensitive)
   for (const streamer of filters.streamers) {
@@ -141,6 +156,10 @@ function observeChanges() {
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.action === 'updateFilters') {
     filters = request.filters;
+    // Ensure excluded array exists
+    if (!filters.excluded) {
+      filters.excluded = [];
+    }
     applyFilters();
   }
 });

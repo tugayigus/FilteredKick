@@ -2,6 +2,7 @@ let filters = {
   streamers: [],
   titles: [],
   categories: [],
+  excluded: [],
   enabled: true
 };
 
@@ -9,6 +10,10 @@ async function loadFilters() {
   const stored = await chrome.storage.local.get(['filters']);
   if (stored.filters) {
     filters = stored.filters;
+    // Ensure excluded array exists for backward compatibility
+    if (!filters.excluded) {
+      filters.excluded = [];
+    }
   }
   updateUI();
 }
@@ -26,6 +31,7 @@ function updateUI() {
   updateFilterList('streamerList', filters.streamers);
   updateFilterList('titleList', filters.titles);
   updateFilterList('categoryList', filters.categories);
+  updateFilterList('excludedList', filters.excluded || []);
   
   document.getElementById('enableToggle').checked = filters.enabled;
   const statusEl = document.getElementById('status');
@@ -63,6 +69,11 @@ function addFilter(type, value) {
   if (!value.trim()) return;
   
   value = value.trim().toLowerCase();
+  
+  // Ensure the filter type exists
+  if (!filters[type]) {
+    filters[type] = [];
+  }
   
   if (!filters[type].includes(value)) {
     filters[type].push(value);
@@ -113,6 +124,19 @@ document.getElementById('categoryInput').addEventListener('keypress', (e) => {
   }
 });
 
+// Excluded streamers handlers
+document.getElementById('addExcluded').addEventListener('click', () => {
+  const input = document.getElementById('excludedInput');
+  addFilter('excluded', input.value);
+  input.value = '';
+});
+
+document.getElementById('excludedInput').addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') {
+    document.getElementById('addExcluded').click();
+  }
+});
+
 document.addEventListener('click', (e) => {
   if (e.target.classList.contains('remove-btn')) {
     const type = e.target.dataset.type;
@@ -120,7 +144,8 @@ document.addEventListener('click', (e) => {
     const typeMap = {
       'streamerList': 'streamers',
       'titleList': 'titles',
-      'categoryList': 'categories'
+      'categoryList': 'categories',
+      'excludedList': 'excluded'
     };
     removeFilter(typeMap[type], index);
   }
@@ -187,6 +212,7 @@ function importFilters(file) {
           streamers: data.filters.streamers || [],
           titles: data.filters.titles || [],
           categories: data.filters.categories || [],
+          excluded: data.filters.excluded || [],
           enabled: data.filters.enabled !== undefined ? data.filters.enabled : true
         };
       } else {
@@ -194,12 +220,13 @@ function importFilters(file) {
         filters.streamers = [...new Set([...filters.streamers, ...data.filters.streamers])];
         filters.titles = [...new Set([...filters.titles, ...data.filters.titles])];
         filters.categories = [...new Set([...filters.categories, ...data.filters.categories])];
+        filters.excluded = [...new Set([...filters.excluded, ...(data.filters.excluded || [])])];
       }
       
       await saveFilters();
       updateUI();
       
-      const count = filters.streamers.length + filters.titles.length + filters.categories.length;
+      const count = filters.streamers.length + filters.titles.length + filters.categories.length + (filters.excluded?.length || 0);
       showBackupStatus(`Import successful! ${count} total filters loaded.`, false);
       
     } catch (error) {

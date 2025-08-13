@@ -28,6 +28,10 @@
 - **🎮 Categories/Games** - Partial category matching
   - Example: Filter "fortnite" hides all Fortnite streams
 
+- **⭐ Excluded Streamers** (NEW v1.0.1!) - Whitelist your favorite streamers
+  - Never hide specific streamers regardless of other filters
+  - Example: If "xQc" is excluded, their streams always show even if title/category matches filters
+
 ### 🔧 Additional Features
 - **💚 Toggle On/Off** - Instantly enable/disable all filters
 - **💾 Backup System** - Export and import your filter configurations
@@ -38,19 +42,32 @@
 
 ## 📦 Installation
 
-### Step 1: Download the Extension
+### 🌟 Option 1: Chrome Web Store (Recommended)
+<div align="center">
+  
+  ### 🚀 Coming Soon to Chrome Web Store! 🚀
+  
+  The extension is currently under review. Check back soon for the direct install link!
+  
+</div>
+
+---
+
+### 🔧 Option 2: Manual Installation (Developer Mode)
+
+#### Step 1: Download the Extension
 ```bash
 git clone https://github.com/tugayigus/FilteredKick.git
 ```
 Or download as ZIP from the [releases page](https://github.com/tugayigus/FilteredKick/releases)
 
-### Step 2: Load in Chrome
+#### Step 2: Load in Chrome
 1. Open Chrome and navigate to `chrome://extensions/`
 2. Enable **Developer mode** (toggle in top right)
 3. Click **Load unpacked**
 4. Select the FilteredKick folder
 
-### Step 3: Start Filtering! 
+#### Step 3: Start Filtering! 
 1. Go to [kick.com](https://kick.com)
 2. Click the FilteredKick icon in your toolbar
 3. Add your filters and enjoy a cleaner browsing experience! 🎉
@@ -65,6 +82,7 @@ Or download as ZIP from the [releases page](https://github.com/tugayigus/Filtere
 | **Streamer** | Enter exact username | `xQc`, `Trainwreckstv` |
 | **Title** | Enter keywords | `drops`, `giveaway`, `24 hour` |
 | **Category** | Enter game/category | `slots`, `just chatting` |
+| **Excluded** ⭐ | Enter username to whitelist | `shroud`, `pokimane` |
 
 ### Managing Filters
 - **➕ Add** - Type and click "Add" or press Enter
@@ -142,11 +160,10 @@ Found a bug? Have a feature request?
 
 ## 📝 Recent Updates
 
-### v1.1.0 - Latest Update
-- 🎯 **Streamer filtering changed to exact match** - More precise control
-- 💾 Added import/export backup system
-- 🎨 Updated UI with Kick.com's green theme
-- 🐛 Various bug fixes and performance improvements
+### v1.0.1 - Latest Update (NEW!)
+- ⭐ **Added Excluded Streamers feature** - Whitelist streamers to never hide them
+- 🐛 Fixed initialization bugs for backward compatibility
+- 🔧 Improved filter storage handling
 
 ### v1.0.0 - Initial Release
 - ✅ Basic filtering by streamer, title, and category
