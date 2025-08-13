@@ -72,6 +72,16 @@ Or download as ZIP from the [releases page](https://github.com/tugayigus/Filtere
 
 ---
 
+## 📸 Screenshot
+
+<div align="center">
+  <img src="extension.png" alt="FilteredKick Extension Interface" width="400">
+  
+  *Clean and intuitive filter management interface*
+</div>
+
+---
+
 ## 🛠️ Technical Details
 
 ### File Structure
