@@ -58,18 +58,21 @@ function extractStreamInfo(card) {
 function shouldHideStream(streamInfo) {
   if (!filters.enabled) return false;
 
+  // Exact match for streamer names (case-insensitive)
   for (const streamer of filters.streamers) {
-    if (streamInfo.streamerName && streamInfo.streamerName.includes(streamer)) {
+    if (streamInfo.streamerName && streamInfo.streamerName === streamer) {
       return true;
     }
   }
 
+  // Partial match for titles
   for (const title of filters.titles) {
     if (streamInfo.title && streamInfo.title.includes(title)) {
       return true;
     }
   }
 
+  // Partial match for categories
   for (const category of filters.categories) {
     if (streamInfo.category && streamInfo.category.includes(category)) {
       return true;
