@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Kick Stream Filter",
+  "name": "Filtered Kick",
   "version": "1.0.0",
-  "description": "Filter Kick.com streams by streamer name, title, and category",
+  "description": "Filter out unwanted streams by streamer name, title keywords, or game categories.",
   "permissions": [
     "storage",
     "activeTab"
